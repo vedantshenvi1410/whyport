@@ -1,26 +1,88 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --color-bg: #FDFDFB;
+    --color-fg: #000000;
+    --color-accent: #FF3E00;
+    --color-accent-tech: #0047FF;
+    --color-accent-highlight: #BFFF00;
+    --color-muted: #E5E5E5;
+    --color-soft-blue: #E0F2FE;
+    --color-soft-orange: #FFEDD5;
+    --color-soft-lime: #F7FEE7;
+
+    --font-serif: 'Playfair Display', serif;
+    --font-sans: 'Inter', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+
+  [data-theme='dark'] {
+    --color-bg: #080808;
+    --color-fg: #FFFFFF;
+    --color-accent: #FF4D1A;
+    --color-accent-tech: #2E7BFF;
+    --color-accent-highlight: #DFFF00;
+    --color-muted: #1A1A1A;
+    --color-soft-blue: #082F49;
+    --color-soft-orange: #451A03;
+    --color-soft-lime: #1A2005;
+  }
+
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-fg);
+    font-family: var(--font-sans);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, .display-text {
+    font-family: var(--font-serif);
+    font-weight: 900;
+    line-height: 0.9;
+    letter-spacing: -0.05em;
+  }
+
+  .border-brutal {
+    border: 1px solid var(--color-fg);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  .text-massive {
+    @apply text-6xl md:text-8xl lg:text-9xl;
+  }
+
+  .text-label {
+    @apply text-xs font-mono uppercase tracking-widest;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-fg);
+  border-radius: 0px;
+}
+
+/* Global Grain Overlay */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.03;
+  background-image: url("https://grainy-gradients.vercel.app/noise.svg");
 }

@@ -40,7 +40,7 @@ const PROJECTS: Project[] = [
     title: "PROJECT_04 // DEPLOYING...",
     year: "2026",
     category: "DESIGN / UI",
-    specs: [{ label: "STATUS", value: "WIRE", label: "CORE", value: "FIGMA" }],
+    specs: [{ label: "STATUS", value: "WIRE" }, { label: "CORE", value: "FIGMA" }],
   },
 ];
 

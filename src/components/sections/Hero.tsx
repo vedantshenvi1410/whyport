@@ -47,7 +47,7 @@ export const Hero = () => {
           <div className="mt-12 md:mt-16">
             <div className="relative inline-block">
               <AnimatedText
-                text="A risky investment."
+                text="I don’t know enough,YET."
                 className="text-3xl md:text-6xl font-serif italic text-brand-accent leading-tight"
                 delay={0.6}
               />

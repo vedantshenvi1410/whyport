@@ -5,31 +5,25 @@ import { Hero } from "@/components/sections/Hero";
 import { Blueprint } from "@/components/sections/Blueprint";
 import { Education } from "@/components/sections/Education";
 import { Architecture } from "@/components/sections/Architecture";
+import { Builder } from "@/components/sections/Builder";
 import { TheLab } from "@/components/sections/TheLab";
 import { Contact } from "@/components/sections/Contact";
 import { useTheme } from "@/components/layout/ThemeProvider";
+import { Navbar } from "@/components/layout/Navbar";
 
 export default function Page() {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <main className="relative w-full">
-      {/* Theme Toggle */}
-      <button
-        onClick={toggleTheme}
-        className="fixed top-8 right-8 z-[100] p-3 border-brutal bg-brand-bg text-brand-fg hover:bg-brand-accent hover:text-brand-bg transition-colors duration-300"
-        data-cursor="hover"
-      >
-        <span className="text-label font-bold uppercase">
-          {theme === "light" ? "Dark Mode" : "Light Mode"}
-        </span>
-      </button>
+    <main className="relative w-full pt-16">
+      <Navbar theme={theme} toggleTheme={toggleTheme} />
 
       {/* Sections */}
       <Hero />
       <Blueprint />
       <Education />
       <Architecture />
+      <Builder />
       <TheLab />
       <Contact />
 

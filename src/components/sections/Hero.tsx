@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import { motion } from "framer-motion";
 import { SectionWrapper } from "@/components/layout/SectionWrapper";
 import { AnimatedText } from "@/components/ui/AnimatedText";
@@ -13,11 +14,16 @@ export const Hero = () => {
       number="01"
       title="Introduction"
       className="pt-20 md:pt-32 bg-brand-bg text-brand-fg"
+      showHeader={false}
     >
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         {/* Text Content Column */}
         <div className="lg:col-span-7 flex flex-col justify-center z-10 order-2">
           <div className="relative">
+            <div className="flex items-baseline gap-4 mb-6">
+              <span className="text-label opacity-50">01</span>
+              <h2 className="text-2xl md:text-4xl font-serif uppercase tracking-tighter opacity-70">Introduction</h2>
+            </div>
             <AnimatedText
               text="VEDANT SHENVI"
               className="text-5xl md:text-7xl lg:text-massive uppercase leading-none tracking-tighter mix-blend-difference text-brand-bg"

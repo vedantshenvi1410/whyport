@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 interface SectionWrapperProps {
@@ -10,9 +9,10 @@ interface SectionWrapperProps {
   title: string;
   children: React.ReactNode;
   className?: string;
+  showHeader?: boolean;
 }
 
-export const SectionWrapper = ({ id, number, title, children, className }: SectionWrapperProps) => {
+export const SectionWrapper = ({ id, number, title, children, className, showHeader = true }: SectionWrapperProps) => {
   return (
     <section
       id={id}
@@ -21,12 +21,14 @@ export const SectionWrapper = ({ id, number, title, children, className }: Secti
         className
       )}
     >
-      <div className="flex flex-col md:flex-row justify-between items-start mb-12 gap-4">
-        <div className="flex items-baseline gap-4">
-          <span className="text-label opacity-50">{number}</span>
-          <h2 className="text-4xl md:text-6xl font-serif uppercase">{title}</h2>
+      {showHeader && (
+        <div className="flex flex-col md:flex-row justify-between items-start mb-12 gap-4">
+          <div className="flex items-baseline gap-4">
+            <span className="text-label opacity-50">{number}</span>
+            <h2 className="text-4xl md:text-6xl font-serif uppercase">{title}</h2>
+          </div>
         </div>
-      </div>
+      )}
       <div className="relative">
         {children}
       </div>
